@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ISL to Speech</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<div class="container">
+    <div class="left">
+        <video width="100%" controls>
+            <source src="/static/BRING_WATER_ME.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+    <div class="right">
+        <h2>Gloss to Sentence</h2>
+        <form id="glossForm">
+            <label for="task_type">Output Type:</label>
+            <select id="task_type" name="task_type">
+                <option value="sentence">Sentence</option>
+                <option value="question">Question</option>
+            </select>
+
+            <label for="language">Translate To:</label>
+            <select id="language" name="language">
+                <option value="english">English</option>
+                <option value="hindi">Hindi</option>
+                <option value="kannada">Kannada</option>
+            </select>
+
+            <button type="submit">Convert</button>
+        </form>
+        <div id="output-box">
+            <p id="sentence-display">Your sentence will appear here.</p>
+            <button id="play-btn" style="display:none;">🔊 Play</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    const form = document.getElementById('glossForm');
+    const sentenceDisplay = document.getElementById('sentence-display');
+    const playBtn = document.getElementById('play-btn');
+    let currentAudio = '';
+
+    form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const formData = new FormData(form);
+        const res = await fetch('/process', {
+            method: 'POST',
+            body: formData
+        });
+        const data = await res.json();
+        sentenceDisplay.innerText = data.sentence;
+        currentAudio = data.audio_path;
+        playBtn.style.display = 'inline-block';
+    });
+
+    playBtn.addEventListener('click', () => {
+        const audio = new Audio(currentAudio);
+        audio.play();
+    });
+</script>
+</body>
+</html>

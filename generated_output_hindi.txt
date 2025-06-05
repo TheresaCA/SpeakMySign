@@ -1,0 +1,5 @@
+Generated Output (in English):
+Are you free today?
+
+Generated Output (in Hindi):
+क्या आप आज मुक्त हैं?

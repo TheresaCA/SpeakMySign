@@ -1,0 +1,5 @@
+Generated Output (in English):
+I am sitting in class.
+
+Generated Output (in Kannada):
+ನಾನು ತರಗತಿಯಲ್ಲಿ ಕುಳಿತಿದ್ದೇನೆ.

@@ -1,0 +1,6 @@
+Flask
+requests
+transformers
+sentence-transformers
+torch
+gTTS
