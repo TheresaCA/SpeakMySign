@@ -30,13 +30,18 @@ into society
 - MP3 file generation for all supported languages
 
 ### How It Works
+## How It Works
 
+```
 User Input (via Web Form)
 │
 ▼
 [ Flask App (app.py) ]
 │
-├── Extracts gloss from video file name (e.g., BRING_WATER_ME.mp4)
+|
+├── ML training of video to convert video to text
+|
+├── Extracts gloss from video file (e.g., BRING_WATER_ME.mp4)
 │
 └── Calls handle_gloss_language() in utils.py
 │
@@ -56,3 +61,4 @@ Return JSON response:
 │
 ▼
 Display result + Play audio in browser
+```
