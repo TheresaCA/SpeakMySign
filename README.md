@@ -34,7 +34,7 @@ into society
 User Input (via Web Form)
 │
 ▼
-[ Flask App (`app.py`) ]
+[ Flask App (app.py) ]
 │
 ├── Extracts gloss from video file name (e.g., BRING_WATER_ME.mp4)
 │
