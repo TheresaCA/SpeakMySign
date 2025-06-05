@@ -20,3 +20,39 @@ This innovation aims to foster greater inclusivity and accessibility,
 helping the hearing and speech-impaired integrate more smoothly
 into society
 
+### Features
+- ML translation of ISL to words using CNN.
+- Gloss-to-sentence/question generation using LLM (Mistral via Ollama)
+- Translation to Hindi or Kannada using `facebook/nllb-200-distilled-600M`
+- Text-to-Speech (TTS) using Google Text-to-Speech (`gTTS`)
+- Semantic similarity checking between expected and generated outputs
+- Back-translation for translation accuracy verification
+- MP3 file generation for all supported languages
+
+### How It Works
+
+User Input (via Web Form)
+│
+▼
+[ Flask App (`app.py`) ]
+│
+├── Extracts gloss from video file name (e.g., BRING_WATER_ME.mp4)
+│
+└── Calls handle_gloss_language() in utils.py
+│
+▼
+┌────────────────────────────────────────────┐
+│ handle_gloss_language()                    │
+│                                            │
+│ 1. Generate English sentence using Ollama  │
+│ 2. Translate sentence (if not English)     │
+│ 3. Generate TTS audio using gTTS           │
+└────────────────────────────────────────────┘
+│
+▼
+Return JSON response:
+- Translated Sentence
+- Path to MP3 Audio File
+│
+▼
+Display result + Play audio in browser
