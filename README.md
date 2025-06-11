@@ -20,6 +20,8 @@ This innovation aims to foster greater inclusivity and accessibility,
 helping the hearing and speech-impaired integrate more smoothly
 into society
 
+---
+
 ### Features
 - ML translation of ISL to words using CNN.
 - Gloss-to-sentence/question generation using LLM (Mistral via Ollama)
@@ -29,8 +31,9 @@ into society
 - Back-translation for translation accuracy verification
 - MP3 file generation for all supported languages
 
+---
+
 ### How It Works
-## How It Works
 
 ```
 User Input (via Web Form)
